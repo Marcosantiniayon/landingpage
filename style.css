@@ -3,10 +3,15 @@ body{
     flex-direction: column;
     margin:0;
     padding:0;
-    
+    /* flex:1; */
 }
 a:visited{
     color:rgb(139, 232, 255);
+}
+h4{
+    margin-top: 20px;
+    margin-bottom: 10px;
+
 }
 button{
     background-color: #3882F6;
@@ -21,55 +26,99 @@ button{
     color: #F9FAF8;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top:16px;
     padding-bottom:80px;
-    padding-left: 96px;
-    padding-right: 96px;
-    gap:16px;
+    /* gap:16px; */
+    /* flex:1; */
+    width:100%;
 }
-.headerLogo{
-    font-weight: 900;
-    flex-shrink: 0;
-}
-.headerLinks{
-    display: flex;
-    flex-shrink: 0;
-    gap: 16px;
-    font-size: 18px;
-    color: #e5e7eb;
-}
+    .headerLogo{
+        font-weight: 900;
+        flex-shrink: 0;
+        margin-left: 36px;
+        margin-right: 36px;
+    }
+    .headerLinks{
+        display: flex;
+        gap: 16px;
+        font-size: 18px;
+        color: #e5e7eb;
+        margin-right: 36px;
+    }
+
 .container1{
     background-color: #1f2937;  
     color: white;
     display: flex;
     justify-content: center;
     flex: 1;
-    gap:36px;
+    /* gap:56px; */
     padding-bottom: 96px;
+    width:100%;
+    align-items: center;
 }
-.container1-1{
-    flex: 0 0 420px;
-}
-.container1-2{
-    flex: 0 0 420px;
-    display: flex;
-}
-.title{
-    font-size: 48px;
-    font-weight: bolder;
-    color:#F9FAF8;
-    padding-bottom: 6px;
-}
-.subtext{
-    font-size: 18px;
-    color: #e5e7eb;
-    padding-bottom: 6px;
+    .mainInfo{
+        flex: .3 1 420px;
+        margin-left: 70px;
+        margin-right: 70px;
+        max-width: 100%;
+        align-items: center;
 
-}
+    }
+    .mainImage{
+        flex: 0 .3 420px;
+        display: flex;
+        margin-right: 96px;
+        max-width: 100%;
+        height:auto;
+    }
+    .title{
+        font-size: 48px;
+        font-weight: bolder;
+        color:#F9FAF8;
+        padding-bottom: 6px;
+    }
+    .subtext{
+        font-size: 18px;
+        color: #e5e7eb;
+        padding-bottom: 6px;
+
+    }
 
 .container2{
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* flex: 1; */
+    /* gap:56px; */
+    padding-bottom: 96px;
+    width:100%;
+    align-items: center;
 }
+    .charactersContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* padding: 0px 24px 96px 24px; */
+        }
+
+        .character{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            /* gap: 8px; */
+            padding: 24px;        
+        }
+
+        .characterInfo{
+            text-align: center;
+            font-size: smaller;
+        }
+
+
 .container3{
     background-color: #e5e7eb;  
 
@@ -82,5 +131,77 @@ button{
 }
 img{
     max-width:100%;
-    max-height:100%;
+    height:auto;
+    object-fit: cover;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 750px) {
+    .mainImage {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 635px) {
+    .headerLinks {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 636px) {
+    .menuHamburger {
+        display: none !important;
+    }
+}
+
+/* Menu Button */
+.menuHamburger{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+    .menuHamburgerButton{
+        width: 20px;
+        height: 3px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+    }
+
+    .menuHamburgerButton::before,
+    .menuHamburgerButton::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 3px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255,101,47,.2);
+        transition: all .5s ease-in-out;
+    }
+
+    .menuHamburgerButton::before{
+        transform: translateY(-8px);
+    }
+    .menuHamburgerButton::after{
+        transform: translateY(8px);
+    }
+
+    .menuHamburger.open .menuHamburgerButton{
+        transform: translateX(-25px);
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .menuHamburger.open .menuHamburgerButton::before{
+        transform: rotate(45deg) translate(18px, -18px);
+    }
+
+    .menuHamburger.open .menuHamburgerButton::after{
+        transform: rotate(-45deg) translate(18px, 18px);
+    }
